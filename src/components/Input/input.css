@@ -1,0 +1,11 @@
+.todo-input{
+    padding: 1rem 2rem;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid transparent;
+    outline: none;
+    transition: box-shadow .3s ease-in;
+}
+
+.todo-input:focus{
+    box-shadow: 0 0 2px 2px green;
+}

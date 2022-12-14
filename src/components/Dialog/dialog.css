@@ -1,0 +1,5 @@
+dialog[open]{
+    position: fixed;
+    inset: 50%;
+    transform: translate(-50%,-50%);
+}

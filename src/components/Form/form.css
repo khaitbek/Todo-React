@@ -1,0 +1,13 @@
+.todo-form{
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.form-btn{
+    padding: 1rem;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid transparent;
+    color: white;
+    background-color: green;
+}
