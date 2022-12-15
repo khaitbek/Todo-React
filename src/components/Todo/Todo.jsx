@@ -1,19 +1,16 @@
 import React from 'react'
 import "./todo.css";
-function Todo({id,title,completed,todos,setTodos,dialogState, setDialogState}) {
-  const editBtnHandler = evt =>{
-    const todoId = evt.target.dataset.id;
-    setDialogState([true,todoId]);
+function Todo({id,title,completed,todos,setTodos, setDialogState}) {
+  const editBtnHandler = id =>{
+    setDialogState([true,id]);
   }
-  const deleteTodoHandler = evt =>{
-    const todoId = evt.target.dataset.id;
-    const newTodos = todos.filter(todo => todo.id !== todoId);
+  const deleteTodoHandler = id =>{
+    const newTodos = todos.filter(todo => todo.id !== id);
     setTodos(newTodos);
   }
-  const completeTodoHandler = evt => {
-    const todoId = evt.target.dataset.id;
+  const completeTodoHandler = id => {
     const newTodos = [...todos];
-    const foundTodo = newTodos.find(todo => todo.id === todoId);
+    const foundTodo = newTodos.find(todo => todo.id === id);
     foundTodo.completed = !foundTodo.completed;
     setTodos(newTodos);
 
@@ -24,11 +21,11 @@ function Todo({id,title,completed,todos,setTodos,dialogState, setDialogState}) {
         <h3 className="todo-title">{title}</h3>
       </div>
       <div className="todo-outer">
-        <input type="checkbox" className="complete-todo" defaultChecked={completed} onChange={completeTodoHandler} data-id={id} />
-        <button className='edit-todo' type='button' onClick={editBtnHandler} data-id={id}>
+        <input type="checkbox" className="complete-todo" defaultChecked={completed} onChange={()=>completeTodoHandler(id)} />
+        <button className='edit-todo' type='button' onClick={()=>editBtnHandler(id)}>
           EDIT
         </button>
-        <button className='delete-todo' type='button' onClick={deleteTodoHandler} data-id={id}>
+        <button className='delete-todo' type='button' onClick={()=> deleteTodoHandler(id)}>
           DELETE
         </button>
       </div>
